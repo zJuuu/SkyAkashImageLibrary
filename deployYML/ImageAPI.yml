@@ -1,0 +1,30 @@
+---
+version: "2.0"
+services:
+  api:
+    image: zjuuu/imageapi:latest #replace with your image
+    expose:
+      - port: 3000
+        to:
+          - global: true
+profiles:
+  compute:
+    api:
+      resources:
+        cpu:
+          units: 0.5
+        memory:
+          size: 512Mi
+        storage:
+          size: 512Mi
+  placement:
+    westcoast:
+      pricing:
+        api:
+          denom: uakt
+          amount: 5000
+deployment:
+  api:
+    westcoast:
+      profile: api
+      count: 1

@@ -10,7 +10,7 @@ const schedule = require('node-schedule');
 const skyPortalUrl = process.env['SKYPORTAL'];
 const client = new SkynetClient(skyPortalUrl);
 
-let mongoDB = process.env['MONGODB'];
+const mongoDB = process.env['MONGODB'];
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 
