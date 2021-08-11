@@ -1,7 +1,7 @@
 ---
 version: "2.0"
 services:
-  api:
+  backup:
     image: zjuuu/imgbackup:latest #replace with your image
     expose:
       - port: 80
@@ -9,7 +9,7 @@ services:
           - global: true
 profiles:
   compute:
-    api:
+    backup:
       resources:
         cpu:
           units: 0.5
@@ -20,11 +20,11 @@ profiles:
   placement:
     westcoast:
       pricing:
-        api:
+        backup:
           denom: uakt
           amount: 5000
 deployment:
-  api:
+  backup:
     westcoast:
       profile: api
       count: 1
